@@ -32,7 +32,7 @@ class AntiToolbox extends PluginBase implements Listener {
 	public function onReceive(DataPacketReceiveEvent $e) {
 		$pk = $e->getPacket();
 		if ($pk instanceof LoginPacket) {
-			if ($pk->clientId === 0) { // When using Toolbox it sets to 0. I would prefer to compare it with clientId from RakLib session, but it's not possible at the moment
+			if ($pk->clientId === 0) { // When using Toolbox it sets to 0
 				$e->setCancelled(true);
 				$e->getPlayer()->close('', $this->kickMessage);
 			}
